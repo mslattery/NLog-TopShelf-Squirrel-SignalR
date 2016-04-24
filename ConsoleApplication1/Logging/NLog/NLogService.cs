@@ -9,6 +9,8 @@ namespace ConsoleApplication1.Logging.NLog
 
         public NLogService(string callingClassName)
         {
+            //LogManager.GetCurrentClassLogger();
+            //TODO: http://codereview.stackexchange.com/questions/124450/injectable-logging-with-nlog-and-ninject
             _logger = LogManager.GetLogger(callingClassName);
         }
 
