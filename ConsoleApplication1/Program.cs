@@ -1,30 +1,17 @@
-﻿using System;
-using System.Reflection;
-using ConsoleApplication1.Logging;
-using ConsoleApplication1.Logging.NLog;
+﻿using ConsoleApplication1.Logging;
 using Ninject;
-using Ninject.Modules;
 using Ninject.Parameters;
+using System.Reflection;
 using Topshelf;
 
 namespace ConsoleApplication1
 {
-
-
-    public class Bindings : NinjectModule
-    {
-        public override void Load()
-        {
-            Bind<ILoggingService>().To<NLogService>();
-        }
-    }
-
     internal static class Program
     {
         private static void Main()
         {
+            // NinJect Setup
             ILoggingService loggingService;
-            // NinJect
             using (IKernel kernel = new StandardKernel())
             {
                 kernel.Load(Assembly.GetExecutingAssembly());
